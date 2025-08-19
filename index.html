@@ -1,0 +1,121 @@
+<!-- file: index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lançamento SISTEMA CASHOUT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+      font-family: 'Arial Black', sans-serif;
+    }
+    /* Animação pulsante do botão */
+    @keyframes pulseGlow {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.4), 0 0 20px rgba(255, 215, 0, 0.2);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.4);
+      }
+    }
+    .pulse {
+      animation: pulseGlow 1.8s infinite;
+    }
+
+    /* Efeito de piscar da faixa */
+    @keyframes blink {
+      0%, 100% { background-color: #dc2626; } /* vermelho forte */
+      50% { background-color: #7f1d1d; }     /* vermelho escuro */
+    }
+    .blink {
+      animation: blink 1s infinite;
+    }
+  </style>
+</head>
+<body class="text-white flex flex-col items-center justify-center min-h-screen p-6">
+
+  <!-- Faixa Urgência -->
+  <div class="w-full blink text-center py-2 text-base font-bold uppercase tracking-widest shadow-lg">
+    Lançamento Exclusivo - Vagas Limitadas!
+  </div>
+
+  <!-- Header -->
+  <header class="text-center mt-8">
+    <h1 class="text-4xl md:text-5xl font-extrabold drop-shadow-lg text-yellow-400">
+      SISTEMA CASHOUT
+    </h1>
+    <p class="mt-3 text-lg md:text-xl font-light max-w-xl mx-auto">
+      O segredo para ganhar no <span class="font-bold text-white">Aviator</span><br>
+      Dia <strong class="text-yellow-400">28/08/2025</strong>
+    </p>
+  </header>
+
+  <!-- Call to Action -->
+  <main class="flex flex-col items-center mt-8 space-y-8">
+    <p class="text-base md:text-lg font-medium max-w-md text-center">
+      Garanta a sua vaga agora mesmo e esteja no grupo exclusivo antes do lançamento oficial.
+    </p>
+
+    <a href="https://abre.ai/sistema-cashout-grupo-oficiall" target="_blank"
+       class="pulse bg-gradient-to-r from-yellow-400 to-yellow-500 border-2 border-black text-black text-lg font-bold py-3 px-8 rounded-lg shadow-xl transition transform hover:scale-105">
+       ACTIVAR O MEU SISTEMA
+    </a>
+
+    <!-- Countdown -->
+    <div class="bg-black bg-opacity-70 p-6 rounded-2xl shadow-xl text-center max-w-md w-full">
+      <h2 class="text-xl font-semibold mb-4 uppercase">ESPERANDO POR VOCE</h2>
+      <div id="countdown" class="flex justify-center gap-3 text-yellow-400"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-10 text-center text-xs opacity-70">
+    © 2025 Sistema Cashout | _LŪČÂS+258_
+  </footer>
+
+  <script>
+    const targetDate = new Date("2025-08-28T00:00:00").getTime();
+    const countdown = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        countdown.innerHTML = "<span class='text-xl font-bold text-green-400'>Já está no ar!</span>";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `
+        <div class="bg-gray-800 px-3 py-2 rounded-md text-center shadow">
+          <div class="text-2xl font-bold">${days}</div>
+          <div class="text-xs uppercase">Dias</div>
+        </div>
+        <div class="bg-gray-800 px-3 py-2 rounded-md text-center shadow">
+          <div class="text-2xl font-bold">${hours}</div>
+          <div class="text-xs uppercase">Horas</div>
+        </div>
+        <div class="bg-gray-800 px-3 py-2 rounded-md text-center shadow">
+          <div class="text-2xl font-bold">${minutes}</div>
+          <div class="text-xs uppercase">Min</div>
+        </div>
+        <div class="bg-gray-800 px-3 py-2 rounded-md text-center shadow">
+          <div class="text-2xl font-bold">${seconds}</div>
+          <div class="text-xs uppercase">Seg</div>
+        </div>
+      `;
+    }
+
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
