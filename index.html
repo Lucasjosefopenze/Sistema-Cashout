@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lançamento SISTEMA CASHOUT</title>
+  <title>SISTEMA CASHOUT ROBÔ</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
       background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
       font-family: 'Arial Black', sans-serif;
     }
-    /* Animação pulsante do botão */
+    /* Animação pulsante do botão amarelo */
     @keyframes pulseGlow {
       0%, 100% {
         transform: scale(1);
@@ -26,10 +26,23 @@
       animation: pulseGlow 1.8s infinite;
     }
 
-    /* Efeito de piscar da faixa */
+    /* Animação glow amarelo para o botão vermelho */
+    @keyframes yellowGlow {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(250, 204, 21, 0.2), 0 0 20px rgba(250, 204, 21, 0.1);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(250, 204, 21, 0.7), 0 0 40px rgba(250, 204, 21, 0.5);
+      }
+    }
+    .yellow-glow {
+      animation: yellowGlow 1.8s infinite;
+    }
+
+    /* Efeito de piscar da faixa no topo */
     @keyframes blink {
-      0%, 100% { background-color: #dc2626; } /* vermelho forte */
-      50% { background-color: #7f1d1d; }     /* vermelho escuro */
+      0%, 100% { background-color: #dc2626; } 
+      50% { background-color: #7f1d1d; }
     }
     .blink {
       animation: blink 1s infinite;
@@ -50,19 +63,20 @@
     </h1>
     <p class="mt-3 text-lg md:text-xl font-light max-w-xl mx-auto">
       O segredo para ganhar no <span class="font-bold text-white">Aviator</span><br>
-      Dia <strong class="text-yellow-400">01/09/2025</strong>
+      Dia <strong class="text-yellow-400">6/09/2025</strong>
     </p>
   </header>
 
   <!-- Call to Action -->
   <main class="flex flex-col items-center mt-8 space-y-8">
-    <p class="text-base md:text-lg font-medium max-w-md text-center">
-      Garanta a sua vaga agora mesmo e esteja no grupo exclusivo antes do lançamento oficial.
+    <p class="text-base md:text-lg font-medium max-w-md text-center text-red-400 font-bold uppercase">
+      ⚠ Atenção: Registem-se no Aviator onde funciona o Sistema Cashout e garanta o seu acesso!
     </p>
 
-    <a href="https://whapro.pro/s/Sistema_Cahout" target="_blank"
-       class="pulse bg-gradient-to-r from-yellow-400 to-yellow-500 border-2 border-black text-black text-lg font-bold py-3 px-8 rounded-lg shadow-xl transition transform hover:scale-105">
-       ACTIVAR O MEU SISTEMA
+    <!-- Botão Registrar no Aviator (vermelho com glow amarelo) -->
+    <a href="https://media1.placard.co.mz/redirect.aspx?pid=5413&bid=1690" target="_blank"
+       class="yellow-glow bg-gradient-to-r from-red-500 to-red-600 border-2 border-black text-white text-lg font-bold py-3 px-8 rounded-lg shadow-xl transition transform hover:scale-105">
+       ➤ REGISTAR-SE NO AVIATOR
     </a>
 
     <!-- Countdown -->
@@ -70,6 +84,12 @@
       <h2 class="text-xl font-semibold mb-4 uppercase">ESPERANDO POR VOCE</h2>
       <div id="countdown" class="flex justify-center gap-3 text-yellow-400"></div>
     </div>
+
+    <!-- Botão Activar Sistema (continua pulsante) -->
+    <a href="https://whapro.pro/s/Sistema_Cahout" target="_blank"
+       class="pulse bg-gradient-to-r from-yellow-400 to-yellow-500 border-2 border-black text-black text-lg font-bold py-3 px-8 rounded-lg shadow-xl transition transform hover:scale-105">
+       ACTIVAR O MEU SISTEMA
+    </a>
   </main>
 
   <!-- Footer -->
@@ -78,7 +98,7 @@
   </footer>
 
   <script>
-    const targetDate = new Date("2025-09-01T20:00:00").getTime();
+    const targetDate = new Date("2025-09-06T22:00:00").getTime();
     const countdown = document.getElementById("countdown");
 
     function updateCountdown() {
